@@ -8,6 +8,8 @@ import estimateRoute from "./routes/estimate.route.js";
 
 const app = express();
 
+const PORT = process.env.PORT || env.PORT || 4000;
+
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
@@ -27,6 +29,7 @@ app.use((err, _req, res, _next) => {
   res.status(500).json({ success: false, message: 'Internal Server Error' });
 });
 
-app.listen(env.PORT, () => {
-  console.log(`Server is running on http://localhost:${env.PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`✅ Server running on port ${PORT}`);
 });
+
